@@ -43,6 +43,7 @@ class CandidateController extends Controller
             $dob = Carbon::createFromFormat('Y-m-d', $dob)->format('d/m/Y');
         }
         $candidateObj->sortable();
+        $candidateObj->orderBy('created_at','desc');
         $candidateObj = $candidateObj->paginate(10);
 
         $passData = array(
